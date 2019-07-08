@@ -1,42 +1,34 @@
 package com.bookex.eBookExchange.Model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "category_table")
-public class Category {
+@Table(name = "post_table")
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
+    @Column(name = "post_id")
     private Long id;
 
-    @Column(name = "category_name")
-    private String name;
-
+    private String title;
+    private String description;
     private String picture;
-
-//    more books published on that category more popularity increased
-//    deleting books can cause decreasing popularity
-    private int popularity;
 
     private String created_at;
     private String updated_at;
-
-    private boolean visible;
 
     public Long getId() { return id; }
 
     public void setId(Long id) { this.id = id; }
 
-    public String getName() { return name; }
+    public String getTitle() { return title; }
 
-    public void setName(String name) { this.name = name; }
+    public void setTitle(String title) { this.title = title; }
 
-    public int getPopularity() { return popularity; }
+    public String getDescription() { return description; }
 
-    public void setPopularity(int popularity) { this.popularity = popularity; }
+    public void setDescription(String description) { this.description = description; }
 
     public String getPicture() { return picture; }
 
@@ -49,8 +41,4 @@ public class Category {
     public String getUpdated_at() { return updated_at; }
 
     public void setUpdated_at(String updated_at) { this.updated_at = updated_at; }
-
-    public boolean isVisible() { return visible; }
-
-    public void setVisible(boolean visible) { this.visible = visible; }
 }

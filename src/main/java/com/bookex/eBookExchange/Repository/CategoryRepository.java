@@ -1,6 +1,7 @@
 package com.bookex.eBookExchange.Repository;
 
 import com.bookex.eBookExchange.Model.Category;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

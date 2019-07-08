@@ -3,14 +3,12 @@ package com.bookex.eBookExchange.Repository.Impl;
 import com.bookex.eBookExchange.Model.Category;
 import com.bookex.eBookExchange.Repository.CategoryRepository;
 import com.bookex.eBookExchange.Repository.JpaRepository.CategoryJpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +23,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
     @Override
     public List<Category> getAllCategories() {
-        return repository.findAll();
+        return repository.sortedByPopularity();
     }
 
     @Override
@@ -43,6 +41,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
         category.setCreated_at(localTimeString);
         category.setUpdated_at(localTimeString);
+        category.setPopularity(1);
         category.setVisible(true);
 
         repository.save(category);
@@ -65,7 +64,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
         Category cat = repository.findById(id).get();
         cat.setName(category.getName());
-        cat.setPopularity(category.getPopularity());
+        cat.setPicture(category.getPicture());
         cat.setUpdated_at(localTimeString);
         repository.save(cat);
         return cat;
