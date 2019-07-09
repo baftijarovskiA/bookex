@@ -9,7 +9,7 @@ public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "promotion_id")
-    private String id;
+    private Long id;
 
     private String link;
     private String picture;
@@ -20,9 +20,9 @@ public class Promotion {
     private String updated_at;
 
 
-    public String getId() { return id; }
+    public Long getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getLink() { return link; }
 

@@ -8,13 +8,13 @@ public interface PromotionService {
 
     List<Promotion> getAllPromotions();
 
-    Promotion getPromotionById(String id);
+    Promotion getPromotionById(Long id);
 
     Promotion addNewPromotion(Promotion promotion);
 
-    Promotion deletePromotionById(String id);
+    Promotion deletePromotionById(Long id);
 
-    Promotion updatePromotionById(String id, Promotion promotion);
+    Promotion updatePromotionById(Long id, Promotion promotion);
 
-    void setVisibility(int state, String promotionId);
+    void setVisibility(int state, Long promotionId);
 }

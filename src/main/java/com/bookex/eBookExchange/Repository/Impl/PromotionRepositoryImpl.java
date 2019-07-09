@@ -25,7 +25,7 @@ public class PromotionRepositoryImpl implements PromotionRepository {
     }
 
     @Override
-    public Promotion getPromotionById(String id) {
+    public Promotion getPromotionById(Long id) {
         return repository.findById(id).get();
     }
 
@@ -45,14 +45,14 @@ public class PromotionRepositoryImpl implements PromotionRepository {
     }
 
     @Override
-    public Promotion deletePromotionById(String id) {
+    public Promotion deletePromotionById(Long id) {
         Optional<Promotion> promotion = repository.findById(id);
         repository.delete(promotion.get());
         return promotion.get();
     }
 
     @Override
-    public Promotion updatePromotionById(String id, Promotion promotion) {
+    public Promotion updatePromotionById(Long id, Promotion promotion) {
 
         DateTimeFormatter FOMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime localTime = LocalDateTime.now();
@@ -67,7 +67,7 @@ public class PromotionRepositoryImpl implements PromotionRepository {
     }
 
     @Override
-    public void setVisibility(int state, String promotionId) {
+    public void setVisibility(int state, Long promotionId) {
         Promotion promotion = repository.findById(promotionId).get();
         if (state == 1){
             promotion.setDisplay(true);

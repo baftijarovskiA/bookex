@@ -22,7 +22,7 @@ public class PromotionServiceImpl implements PromotionService {
     }
 
     @Override
-    public Promotion getPromotionById(String id) {
+    public Promotion getPromotionById(Long id) {
         return repository.getPromotionById(id);
     }
 
@@ -32,17 +32,17 @@ public class PromotionServiceImpl implements PromotionService {
     }
 
     @Override
-    public Promotion deletePromotionById(String id) {
+    public Promotion deletePromotionById(Long id) {
         return repository.deletePromotionById(id);
     }
 
     @Override
-    public Promotion updatePromotionById(String id, Promotion promotion) {
+    public Promotion updatePromotionById(Long id, Promotion promotion) {
         return repository.updatePromotionById(id,promotion);
     }
 
     @Override
-    public void setVisibility(int state, String promotionId) {
+    public void setVisibility(int state, Long promotionId) {
         repository.setVisibility(state,promotionId);
     }
 }
