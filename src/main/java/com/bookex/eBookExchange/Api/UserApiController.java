@@ -15,29 +15,9 @@ import java.util.List;
 @RequestMapping("/api/user")
 public class UserApiController {
 
-    private RoleJpaRepository roleJpaRepository;
     private UserServiceImpl userService;
 
-    public UserApiController(UserServiceImpl userService, RoleJpaRepository roleJpaRepository) {
-        this.userService = userService;
-        this.roleJpaRepository = roleJpaRepository;
-    }
-
-    @PostConstruct
-    public void CreateRolesAndAdministrator(){
-        Role role = null;
-        if(roleJpaRepository.count() != 0){
-            role = new Role();
-            role.setId(1L);
-            role.setName("ADMIN");
-            roleJpaRepository.save(role);
-            role = new Role();
-            role.setId(2L);
-            role.setName("USER");
-            roleJpaRepository.save(role);
-        }
-
-    }
+    public UserApiController(UserServiceImpl userService) {  this.userService = userService; }
 
     @GetMapping
     public List<User> getAllUsers(){ return userService.getAllUsers(); }
