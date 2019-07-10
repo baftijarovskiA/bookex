@@ -22,7 +22,7 @@ public class PromotionApiController {
     }
 
     @RequestMapping("/{id}")
-    public Promotion getPromotionById(@PathVariable("id") String id){
+    public Promotion getPromotionById(@PathVariable("id") Long id){
         return promotionService.getPromotionById(id);
     }
 
@@ -32,15 +32,15 @@ public class PromotionApiController {
     }
 
     @DeleteMapping("/{id}")
-    public Promotion deletePromotionById(@PathVariable("id") String id){ return promotionService.deletePromotionById(id); }
+    public Promotion deletePromotionById(@PathVariable("id") Long id){ return promotionService.deletePromotionById(id); }
 
     @PutMapping("/{id}")
-    public Promotion updatePromotionById(@PathVariable("id") String id, @Valid @RequestBody Promotion promotion){
+    public Promotion updatePromotionById(@PathVariable("id") Long id, @Valid @RequestBody Promotion promotion){
         return promotionService.updatePromotionById(id, promotion);
     }
 
     @RequestMapping("/v/{state}/{promotionId}")
-    public void setVisibility(@PathVariable("state") int state, @PathVariable("promotionId") String promotionId){
+    public void setVisibility(@PathVariable("state") int state, @PathVariable("promotionId") Long promotionId){
         promotionService.setVisibility(state, promotionId);
     }
 }
